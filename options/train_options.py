@@ -35,14 +35,14 @@ class TrainOptions:
 		self.parser.add_argument('--l2_lambda_crop', default=0, type=float, help='L2 loss multiplier factor for inner image region')
 		self.parser.add_argument('--moco_lambda', default=0, type=float, help='Moco-based feature similarity loss multiplier factor')
 
-		self.parser.add_argument('--stylegan_weights', default=model_paths['stylegan_ffhq'], type=str, help='Path to StyleGAN model weights')
+		self.parser.add_argument('--stylegan_weights', default=model_paths['edward_stylegan'], type=str, help='Path to StyleGAN model weights')
 		self.parser.add_argument('--checkpoint_path', default=None, type=str, help='Path to pSp model checkpoint')
 
-		self.parser.add_argument('--max_steps', default=500000, type=int, help='Maximum number of training steps')
+		self.parser.add_argument('--max_steps', default=100000, type=int, help='Maximum number of training steps')
 		self.parser.add_argument('--image_interval', default=100, type=int, help='Interval for logging train images during training')
 		self.parser.add_argument('--board_interval', default=50, type=int, help='Interval for logging metrics to tensorboard')
 		self.parser.add_argument('--val_interval', default=1000, type=int, help='Validation interval')
-		self.parser.add_argument('--save_interval', default=None, type=int, help='Model checkpoint interval')
+		self.parser.add_argument('--save_interval', default=10000, type=int, help='Model checkpoint interval')
 
 		# arguments for weights & biases support
 		self.parser.add_argument('--use_wandb', action="store_true", help='Whether to use Weights & Biases to track experiment.')

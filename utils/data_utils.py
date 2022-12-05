@@ -3,6 +3,7 @@ Code adopted from pix2pixHD:
 https://github.com/NVIDIA/pix2pixHD/blob/master/data/image_folder.py
 """
 import os
+import pandas as pd
 
 IMG_EXTENSIONS = [
     '.jpg', '.JPG', '.jpeg', '.JPEG',
@@ -23,3 +24,10 @@ def make_dataset(dir):
                 path = os.path.join(root, fname)
                 images.append(path)
     return images
+
+def read_dataset(files):
+    images = []
+    files = pd.read_csv(files)
+    for index, filename in files.iterrows():
+        images.append(filename['path'])
+    return images 
